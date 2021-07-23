@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGW_MATCHCODE_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="SH2" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID_1"/>
+                    <PropertyRef Name="ID_2"/>
+                </Key>
+                <Property Name="ID_1" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ID_2" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="VENDOR_SH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lifnr" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ktokk" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="LEDGER_ACC_SH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Ktopl"/>
+                    <PropertyRef Name="Bukrs"/>
+                </Key>
+                <Property Name="Ktopl" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Saknr" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="PO" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Ebeln"/>
+                </Key>
+                <Property Name="Ebeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Doc.compras" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Sociedad" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Proveedor" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Bedat" Type="Edm.DateTime" Precision="7" sap:label="Fecha documento" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="AccOpVenType_SH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rol" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="PRD_OP_CL_SH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Sgsart"/>
+                    <PropertyRef Name="Sfhaart"/>
+                </Key>
+                <Property Name="Sgsart" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Cl.producto" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sfhaart" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Clase operación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ACC_ASSIG_CAT_SH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Knttp"/>
+                </Key>
+                <Property Name="Knttp" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Tipo imputación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Knttx" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Denominación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZGW_MATCHCODE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="CMESet" EntityType="ZGW_MATCHCODE_SRV.SH2" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="MATERIAL_PLANTSet" EntityType="ZGW_MATCHCODE_SRV.SH2" sap:label="Material por centro" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ASSETSet" EntityType="ZGW_MATCHCODE_SRV.SH2" sap:label="Activo fijo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="VENDORSet" EntityType="ZGW_MATCHCODE_SRV.VENDOR_SH" sap:label="PROVEEDOR" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="LEDGER_ACC_Set" EntityType="ZGW_MATCHCODE_SRV.LEDGER_ACC_SH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="POSet" EntityType="ZGW_MATCHCODE_SRV.PO" sap:label="Documento de compras" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="AccOpVenType_SHSet" EntityType="ZGW_MATCHCODE_SRV.AccOpVenType_SH" sap:label="Tipo Solicitud FB" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PRD_OP_CL_Set" EntityType="ZGW_MATCHCODE_SRV.PRD_OP_CL_SH" sap:label="CLASE DE PRODUCTO Y CLASE DE OPERACION" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ACC_ASSIG_CATSet" EntityType="ZGW_MATCHCODE_SRV.ACC_ASSIG_CAT_SH" sap:label="Tipo de imputación" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PRDCLSet" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="CLASE DE PRODUCTO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PUR_TYP_DOC_CL_Set" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="TIPO DE DOCUMENTO Y CLASE DE DOCUMENTO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="DOC_CL_Set" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="clase de documento" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="TAX_CODESet" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="Indicadores de impuesto" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="CURRENCYSet" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="MONEDA" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="COMPANYSet" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="SOCIEDAD" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PARTNERSet" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="INTERMEDIARIO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="IDENTIF_N_Set" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="Nº identificativo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="DEPOSITSet" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="DEPOSITO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="VALCLSet" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="Clase de valoracion" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PURCHASING_ORG_Set" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="Organización de compras" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="PLANTSet" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="Centro" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="MATERIALSet" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="MATERIAL" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="INVESTMENT_OP_Set" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="OPERACION DE INVERCIONES" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="COST_CENTERSet" EntityType="ZGW_MATCHCODE_SRV.SH" sap:label="Centro de costo" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://sap-des-https:44300/sap/opu/odata/sap/ZGW_MATCHCODE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://sap-des-https:44300/sap/opu/odata/sap/ZGW_MATCHCODE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

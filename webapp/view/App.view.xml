@@ -1,0 +1,115 @@
+<mvc:View
+    controllerName="com.nespola.aprobacionordendecompra.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.table"
+    xmlns:l="sap.ui.layout" xmlns:ux="sap.uxap" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"  xmlns:tnt="sap.tnt"
+>
+		<App id="app" height="90%">
+			<pages>
+				<Page showHeader="false" showFooter="false" id="page" title="Aprobación de OC">
+					<content>
+                        <l:VerticalLayout width="100%">
+                            <l:content>
+                                <Panel id="idCoberturasHeader" backgroundDesign="Transparent">
+                            <l:Grid defaultSpan="XL6 L6 M12 S12">
+                                <VBox>
+                                <l:HorizontalLayout>
+                                    <Label text="Nro orden de compra:" class="sapUiSmallMarginTop sapUiTinyMarginEnd"/>
+                                    <tnt:InfoLabel id="il1" text="{header>/nroSolicitud}" class="sapUiSmallMarginTop" renderMode="Narrow" colorScheme="5" displayOnly= "true" />              
+                                </l:HorizontalLayout>
+                                <l:HorizontalLayout>
+                                    <Label text="Org. Compras:" class="sapUiSmallMarginTop sapUiTinyMarginEnd"/>
+                                    <Text text="{header>/orgCompras}" class="sapUiSmallMarginTop" />                                     
+                                </l:HorizontalLayout>
+                                <l:HorizontalLayout>
+                                    <Label text="Grp. Compras:" class="sapUiSmallMarginTop sapUiTinyMarginEnd"/>
+                                    <Text text="{header>/grpCompras}" class="sapUiSmallMarginTop" />                                     
+                                </l:HorizontalLayout>
+                                <l:HorizontalLayout>    
+                                    <TextArea value="" placeholder="Ingrese comentario (opcional).." class="sapUiSmallMarginTop sapUiTinyMarginEnd" growingMaxLines="4" growing="true"/>
+                                    <Button icon="sap-icon://comment" class="sapUiSmallMarginTop sapUiTinyMarginBegin" press="onCommentsView" />                
+                                </l:HorizontalLayout>
+                                </VBox>
+                                <VBox>
+                                <l:HorizontalLayout>
+                                    <Label text="Proveedor" class="sapUiSmallMarginTop sapUiTinyMarginEnd"/>
+                                    <Text text="{header>/proveedor}" class="sapUiSmallMarginTop" />                                     
+                                </l:HorizontalLayout>           
+                                <l:HorizontalLayout>
+                                    <Label text="Precio Neto" class="sapUiSmallMarginTop sapUiTinyMarginEnd"/>
+                                    <Text text="{header>/precioNeto}" class="sapUiSmallMarginTop" />                                     
+                                </l:HorizontalLayout>
+                                <l:HorizontalLayout>
+                                    <Label text="Fecha del documento" class="sapUiSmallMarginTop sapUiTinyMarginEnd"/>
+                                    <Text text="{path: 'header>/fechaDoc',
+                                                    type: 'sap.ui.model.type.Date'
+                                                    
+                                                    }" 
+                                            class="sapUiSmallMarginTop" />               
+                                </l:HorizontalLayout>
+                                </VBox>        
+                            </l:Grid>
+                        </Panel>
+                            <Table 
+                                items="{posiciones>/data}"
+                                growing="true"
+                                growingThreshold="10"
+                                sticky="HeaderToolbar"                  
+                                >
+                                <headerToolbar>
+                                    <OverflowToolbar id="otbSubheader">
+                                        <Title text="Datos Posición" level="H2" />
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                                <columns>
+                                    <Column width="7em" hAlign="Center" >
+                                        <Text text="Tipo de Imputación" />
+                                    </Column>
+                                    <Column width="6em" hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+                                        <Text text="Material" />
+                                    </Column>
+                                    <Column width="4em" hAlign="Center" minScreenWidth="Tablet" demandPopin="true">
+                                        <Text text="Texto Breve" />
+                                    </Column>
+                                    <Column width="4em" hAlign="Center" minScreenWidth="Tablet" demandPopin="true" >
+                                        <Text text="Cantidad" />
+                                    </Column>
+                                    <Column width="5em" hAlign="Begin">
+                                        <Text text="UM"/>
+                                    </Column>
+                                    <Column width="5em" hAlign="Begin">
+                                        <Text text="Precio Neto"/>
+                                    </Column>
+                                    <Column width="5em" hAlign="Begin">
+                                        <Text text="Grp Articulos"/>
+                                    </Column>
+                                    <Column width="5em" hAlign="Begin">
+                                        <Text text="Centro"/>
+                                    </Column>
+                                    
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <Text text="{posiciones>KnttpDesc}" />
+                                            <Text text="{posiciones>MatnrDesc}" />
+                                            <Text text="" />
+                                            <Text text="{posiciones>Menge}" />
+                                            <Text text="{posiciones>MeinsDesc}" />
+                                            <Text text="{posiciones>Netwr}" />
+                                            <Text text="{posiciones>MatklDesc}" />
+                                            <Text text="{posiciones>WerksDesc}" />
+                                               
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                            </l:content>
+                        </l:VerticalLayout>
+                    </content>
+				</Page>
+			</pages>
+		</App>
+</mvc:View>

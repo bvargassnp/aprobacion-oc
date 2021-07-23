@@ -1,0 +1,16 @@
+.sapMBarPH {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center !important;
+}
+
+.sapUiSizeCompact .sapMInputBase:not(.sapMInputBaseHasEndIcons):not(.sapMInputBaseHasBeginIcons) .sapMInputBaseContentWrapper {
+    min-width: 18rem;
+}
+
+.sapMPanelContent {
+    padding: 0.625rem 1rem 0.2rem 1rem;
+    box-sizing: border-box;
+    overflow: auto;
+    white-space: normal;
+}
